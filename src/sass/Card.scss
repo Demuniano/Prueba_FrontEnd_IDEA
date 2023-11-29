@@ -1,4 +1,7 @@
 .card{
+    font-family: 'Heebo', sans-serif;
+    width: 320px;
+    height: 320px;
     background-color: #fff;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0,0,0,0.2);
@@ -6,21 +9,22 @@
     margin: 20px;
     text-align: center;
     transition: all 0.3s ease-in-out;
-    
+    display: inline-block;
+    z-index: 1000;
     &:hover{
         transform: scale(1.05);
     }
-    .card__title{
+    &__title{
         font-size: 1.5rem;
         font-weight: 700;
         margin-bottom: 10px;
     }
-    .card__description{
+    &__description{
         font-size: 1rem;
         font-weight: 400;
         margin-bottom: 10px;
     }
-    .card__button{
+    &__button{
         background-color: #000;
         border: none;
         border-radius: 5px;
@@ -35,4 +39,37 @@
             color: #000;
         }
     }
+    &__priority{
+        border-radius: 5px;
+        width: 50%;
+        margin: 0 auto;
+    }
+    .buttons-container {
+        padding: 5px 10px; 
+        text-align: right;
+
+    }
+    .buttons-container:hover {
+        background-color: #fff;
+        color: #000;
+    }
+ button{
+    margin-right: 5px;
+    font-size: 12px; 
+ }   
+
+ .priority-important {
+    background-color: #ee291b; // Cambia a tu color preferido
+    color: #fff;
+}
+
+.priority-moderate {
+    background-color: #1d72f3; // Cambia a tu color preferido
+    color: #fff;
+}
+
+.priority-low {
+    background-color: #7b8f7b; // Cambia a tu color preferido
+    color: #fff;
+}
 }
