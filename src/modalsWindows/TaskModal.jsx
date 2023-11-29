@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Alert } from 'reactstrap';
 
-function TaskModal({ modal, toggle, onSave, task }) {
+function TaskModal({ modal, toggle, onSave, task, isEdit }) {
   const [taskName, setTaskName] = useState('');
   const [taskDescription, setTaskDescription] = useState('');
   const [taskPriority, setTaskPriority] = useState('');
@@ -14,6 +14,11 @@ function TaskModal({ modal, toggle, onSave, task }) {
       setTaskDescription(task.Description || '');
       setTaskPriority(task.Priority || '');
       setTaskState(task.State || 'Pendiente');
+    } else {
+      setTaskName('');
+      setTaskDescription('');
+      setTaskPriority('');
+      setTaskState('Pendiente');
     }
   }, [task]);
 
@@ -49,14 +54,24 @@ function TaskModal({ modal, toggle, onSave, task }) {
       State: taskState,
     };
 
-    onSave(updatedTask); 
+    onSave(updatedTask);
     toggle();
+    clearFields(); // Call the clearFields function after saving the task
     setError('');
+  };
+
+  const clearFields = () => {
+    setTaskName('');
+    setTaskDescription('');
+    setTaskPriority('');
+    setTaskState('Pendiente');
   };
 
   return (
     <Modal isOpen={modal} toggle={toggle}>
-      <ModalHeader toggle={toggle}>Modificar tarea</ModalHeader>
+      <ModalHeader toggle={toggle}>
+        {isEdit ? 'Modificar tarea' : 'Crear tarea'}
+      </ModalHeader>
       <ModalBody>
         {error && <Alert color="danger">{error}</Alert>}
         <form>

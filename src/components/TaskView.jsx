@@ -44,7 +44,7 @@ function TaskView() {
       <div className='title'>
         <h1>Task Manager</h1>
         <button className='btn btn-success' id='btn-createTask' onClick={() => setModal(true)}>
-          <FaPlusCircle id='icon-createTask' />
+          <FaPlusCircle id='icon-createTask'/>
           Nueva tarea
         </button>
       </div>
