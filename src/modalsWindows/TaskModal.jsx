@@ -118,7 +118,7 @@ function TaskModal({ modal, toggle, onSave, task, isEdit }) {
       </ModalBody>
       <ModalFooter>
         <Button className="btn btn-success" onClick={handleUpdate}>
-          Guardar cambios
+          Guardar
         </Button>{' '}
         <Button className="btn btn-danger" onClick={toggle}>
           Cancelar
